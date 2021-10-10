@@ -146,9 +146,11 @@ class Gui:
 
             string_image.value = gambar_
             nama_pegawai = string_pegawai.value
-            if nama_pegawai != '':
-                window["-labelpegawai-"].update(value='Terdeteksi Sebagai {}'.format(nama_pegawai.upper()))
-                if STATUS:
+            
+            if STATUS:
+                if nama_pegawai != '':
+                    window["-labelpegawai-"].update(value='Terdeteksi Sebagai {}'.format(nama_pegawai.upper()))
+                    
                     now = datetime.now()
                     current_time = now.strftime("%H:%M:%S")
 
@@ -186,8 +188,8 @@ class Gui:
                             window["-waktuout-"].update(value=out_)
                         x= datetime.now()
                         y = x + dt.timedelta(0,5)
-            else:
-                window["-labelpegawai-"].update(value='')
+                else:
+                    window["-labelpegawai-"].update(value='Pegawai Tidak Dikenal')
 
             now = datetime.now()
             current_date = now.strftime("%d/%m/%Y")
